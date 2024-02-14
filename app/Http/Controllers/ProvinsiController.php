@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Provinsi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
@@ -19,7 +20,10 @@ class ProvinsiController extends Controller
             }
 
             $data = $request->input();
+
+
             $data["is_active"] = 'yes';
+     
             $res = Provinsi::create($data);
             return response()->json(['message' => 'success', 'data' => $res]);
         } catch (\Throwable $th) {

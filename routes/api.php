@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\DailyLogController;
 use App\Http\Controllers\HelloWorldController;
 use App\Http\Controllers\KinerjaPredikatController;
 use App\Http\Controllers\ProvinsiController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +34,11 @@ Route::post('provinsi/create',[ProvinsiController::class,'create']);
 Route::get('provinsi/read/{id}',[ProvinsiController::class,'read']);
 Route::put('provinsi/update/{id}',[ProvinsiController::class,'update']);
 Route::delete('provinsi/delete/{id}',[ProvinsiController::class,'delete']);
+
+Route::post('daily-log/create',[DailyLogController::class,'create']);
+Route::get('daily-log/list',[DailyLogController::class,'list']);
+Route::put('daily-log/approve/{id}',[DailyLogController::class,'approve']);
+
+Route::get('user/read/{id}',[UserController::class,'read']);
+Route::post('user/create',[UserController::class,'create']);
+Route::post('user/auth',[UserController::class,'auth']);
